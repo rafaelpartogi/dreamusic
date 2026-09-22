@@ -30,7 +30,7 @@
         .navbar-brand img {
             height: 40px;
             margin-right: 10px;
-            filter: brightness(0) invert(1); /* Membuat logo putih jika hitam */
+            filter: brightness(0) invert(1);
         }
 
         .hero-section {
@@ -111,7 +111,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Gitar Bass</td><td>Jumat</td><td>16.00 - 17.00</td><td>Rafael Partogi</td></tr>
+                    <tr><td>Gitar</td><td>Jumat</td><td>16.00 - 17.00</td><td>Rafael Partogi</td></tr>
                     <tr><td>Pelatihan Band</td><td>Jumat</td><td>17.00 - 18.00</td><td>Rafael Partogi</td></tr>
                 </tbody>
             </table>
@@ -140,10 +140,10 @@
 							    <div class="mb-3">
                                 <label class="form-label small">Angkatan</label>
                                 <select name="angkatan" class="form-select">
-                                    <option>2022</option>
                                     <option>2023</option>
                                     <option>2024</option>
                                     <option>2025</option>
+                                    <option>2026</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -181,14 +181,12 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     btn.disabled = true;
     btn.innerHTML = "Sedang Mengirim...";
-
-    // UBAH BAGIAN INI: Konversi FormData ke URLSearchParams
     const formData = new FormData(form);
     const data = new URLSearchParams(formData); 
     
     fetch(scriptURL, { 
         method: 'POST', 
-        body: data, // Kirim sebagai URL encoded
+        body: data,
         mode: 'no-cors' 
     })
     .then(() => {
